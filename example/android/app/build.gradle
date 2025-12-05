@@ -48,6 +48,7 @@ android {
         noCompress '.flv', '.mp4'
     }
 
+
     buildTypes {
         release {
             // Signing with the debug keys for now, so `flutter run --release` works.
