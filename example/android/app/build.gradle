@@ -44,6 +44,15 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    splits {
+        abi {
+            enable true
+            reset()
+            include "arm64-v8a"
+            universalApk false  // 关闭通用 APK（只生成对应架构的独立 APK/AAB）
+        }
+    }
+
     aaptOptions {
         noCompress '.flv', '.mp4'
     }
@@ -55,6 +64,18 @@ android {
             minifyEnabled true
             signingConfig signingConfigs.debug
             // proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            println(variant.name)
+            def appName = "fijkplayer_example"
+            def buildType = variant.buildType.name
+            def versionName = variant.versionName
+            outputFileName = "${appName}-${versionName}-${buildType}.apk"
+            println("  L Terminal Run : cd " + rootProject.buildDir + "/app/outputs/apk/${buildType}/${outputFileName}")
         }
     }
 }
