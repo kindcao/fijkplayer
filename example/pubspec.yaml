@@ -1,9 +1,9 @@
 name: fijkplayer_example
 description: Demonstrates how to use the fijkplayer plugin.
 publish_to: 'none'
-version: 0.9.1+20251205
+version: 0.11.2+20251205
 environment:
-  sdk: ">=3.6.2 <4.0.0"
+  sdk: ">=3.7.2 <4.0.0"
 
 dependencies:
   flutter:
